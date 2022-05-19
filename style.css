@@ -2,4 +2,99 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Ubuntu;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+body {
+  background-color: rgb(0, 31, 60);
+  color: rgb(225, 225, 225);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw 30vw;
+
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vw;
+  margin-bottom: 2vw;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 0.5vw 0 0.5vw 1vw;
+  color: rgb(225, 225, 225);
+  background-color: rgb(0, 48, 91);
+  transition: all 0.2s ease;
+  flex: 1
+}
+
+input::placeholder {
+  color: rgb(165, 165, 165);
+  font-size: 14px;
+}
+input:focus {
+  background-color: rgb(225, 225, 225);
+  color: rgb(0, 31, 60);
+}
+
+button {
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 0.5vw 2vw;
+  background-color: rgb(169, 163, 68);
+  color: rgb(0, 31, 60);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: rgb(217, 205, 44);
+}
+
+table {
+  width: 100%;
+}
+
+thead td {
+  font-weight: bold;
+  pointer-events: none;
+  text-transform: uppercase;
+  border-bottom: 3px solid rgb(0, 48, 91);
+}
+
+tr {
+  background-color: rgb(0, 37, 72);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+tr.bg-color {
+  background-color: rgb(169, 163, 68);
+  color: rgb(0, 37, 72);
+}
+
+tr.bg-color td {
+  font-weight: bold;
+}
+
+td {
+  padding: 0.5vw 0 0.5vw 2vw;
+}
+
+td:first-child {
+  width: 3vw;
+  padding: 0;
+  text-align: center;
 }
