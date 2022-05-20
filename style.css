@@ -2,99 +2,132 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Ubuntu;
+}
+
+:root {
+  --bg-color: rgb(0, 31, 60);
+  --text-color: rgb(225, 225, 225);
+  --bg-item: rgb(0, 37, 72);
+  --accent: rgb(169, 163, 68);
+  --transition: all 0.5s ease;
+  font-family: Ubuntu, sans-serif;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
-  background-color: rgb(0, 31, 60);
-  color: rgb(225, 225, 225);
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color); 
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2vw 30vw;
-
+  margin: 2vw 30vw;
+  gap: 1vw;
 }
 
-form {
+.accordion_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.accordion_item__header {
+  position: relative;
+  background-color: var(--bg-item);
+  padding: 0.5vw 2vw;
+  cursor: pointer;
+  transition: var(--transition); 
+}
+
+.accordion_item__header::after {
+  content: '>';
+  position: absolute;
+  top: 0.5vw;
+  right: 1.5vw;
+  height: 20px;
+  width: 20px;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(0deg);
+  transition: var(--transition);
+}
+
+.accordion_item.open .accordion_item__header {
+  background-color: var(--accent);
+  color: var(--bg-color);
+}
+
+.accordion_item.open .accordion_item__header::after {
+  color: var(--bg-color);
+  transform: rotate(90deg);
+}
+
+.accordion_item__content {
+  background-color: var(--bg-item);
+  overflow: hidden;
+  height: auto;
+  max-height: 0;
+  transition: var(--transition); 
+}
+
+.accordion_item.open .accordion_item__content {
+  max-height: 400px;
+}
+
+.user_data {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 2vw;
+  padding: 2vw;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin: 2vw 20vw;
+  }
+  .user_data {
+    flex-direction: column;
+  }
+}
+
+.accordion_item.open .user_data {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.user_data__img {
+  flex: 1;
+  background-color: var(--bg-color);
+  border: 1px solid var(--accent);
+}
+
+.user_data__txt {
+  flex: 3;
+  flex-shrink: ;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1vw;
-  margin-bottom: 2vw;
 }
 
-input {
-  border: none;
-  outline: none;
-  padding: 0.5vw 0 0.5vw 1vw;
-  color: rgb(225, 225, 225);
-  background-color: rgb(0, 48, 91);
-  transition: all 0.2s ease;
-  flex: 1
+.user_data__txt div {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  flex: 1;
+  flex-shrink: 2
 }
 
-input::placeholder {
-  color: rgb(165, 165, 165);
-  font-size: 14px;
-}
-input:focus {
-  background-color: rgb(225, 225, 225);
-  color: rgb(0, 31, 60);
-}
-
-button {
-  font-weight: bold;
-  border: none;
-  outline: none;
-  padding: 0.5vw 2vw;
-  background-color: rgb(169, 163, 68);
-  color: rgb(0, 31, 60);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-button:hover {
-  background-color: rgb(217, 205, 44);
-}
-
-table {
-  width: 100%;
-}
-
-thead td {
-  font-weight: bold;
-  pointer-events: none;
-  text-transform: uppercase;
-  border-bottom: 3px solid rgb(0, 48, 91);
-}
-
-tr {
-  background-color: rgb(0, 37, 72);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-tr.bg-color {
-  background-color: rgb(169, 163, 68);
-  color: rgb(0, 37, 72);
-}
-
-tr.bg-color td {
-  font-weight: bold;
-}
-
-td {
-  padding: 0.5vw 0 0.5vw 2vw;
-}
-
-td:first-child {
-  width: 3vw;
-  padding: 0;
-  text-align: center;
+div p {
+  padding: 0.5vw 1vw;
+  background-color: var(--bg-color);
+  white-space: nowrap;
 }
