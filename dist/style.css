@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  margin: 0.5vw;
+}
+
+:root {
+  font-family: Ubuntu;
+  font-size: 20px;
+  color: rgb(143, 195, 222);
+}
+
+body {
+  background-color: rgb(16, 25, 30);
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
